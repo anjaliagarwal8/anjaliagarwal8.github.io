@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Anjali Agarwal</title>
-    <link>https://anjaliagarwal8.github.io/</link>
-    <description>Recent content on Anjali Agarwal</description>
+    <title>Posts on Anjali Agarwal</title>
+    <link>https://anjaliagarwal8.github.io/posts/</link>
+    <description>Recent content in Posts on Anjali Agarwal</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 05 Aug 2021 08:20:12 +0530</lastBuildDate><atom:link href="https://anjaliagarwal8.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 05 Aug 2021 08:20:12 +0530</lastBuildDate><atom:link href="https://anjaliagarwal8.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mypost</title>
       <link>https://anjaliagarwal8.github.io/posts/mypost/</link>
