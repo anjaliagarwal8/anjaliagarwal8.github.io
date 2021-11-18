@@ -112,23 +112,27 @@
          <h1>Automated Sleep Scoring</h1>
          <p>Designing an automated sleep scoring system using the rodents' LFP data.</p>
 <p>@ <a href="https://www.genzellab.com/">Genzel Lab</a></p>
-<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+<p>Sleep occupies about one-third of a human life which makes it necessary to understand its needs and functions [1]. The most important function, among others, is consolidation of memory and weakening of synaptic connections. Sleep occurs in repeated cycles of three most important stages, Wake, REM and Non-REM. All three stages occur with brain activity of varying frequency and amplitude. While Wake and REM stages are dominated by high-frequency and low amplitude waves, NREM sleep is mostly dominated by low-frequency, high amplitude waves also called slow waves.</p>
+<p>The current standard method for sleep classification is by manual visual inspection, which is prone to several errors. Moreover, we are only limited to three standard stages, REM, NREM and WAKE. Although recent studies have provided evidence that sleep can be subclassified into many more substages which are hidden from the scorer in visual scoring.</p>
+<p>Here we have demonstrated an unsupervised method for sleep scoring based on the features extracted from the LFP (Local Field Potential) data recorded from the (hippocampus and thalamus or neocortex) —- area of mice’s brain. In this method we need not have a prior knowledge on the number of sleep stages we want to classify our data in. This method can help us detect sleep stages that would have been impossible to detect during manual scoring.</p>
+<p>Using the unsupervised mcRBM (mean covariance Restricted Boltzmann Machine) model [4] we can find the latent states in the raw sleep dataset which can define the hidden properties in the data. Each epoch in the raw dataset can then be associated with one of the latent states. The mcRBM method has been proven very effective in finding the latent sleep stages as evidenced by this study [3] using EEG and EMG data.</p>
+<h2 id="data">Data</h2>
+<h2 id="features">Features</h2>
+<p>Initially we started with the power values in various frequency ranges and the EMG-like signal or accelerometer signal. We took delta, beta, and theta power values and ultimately took the ratio of each pair as done in the original study.</p>
 <ol>
-<li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
-<li>Aliquam tincidunt mauris eu risus.</li>
+<li>Spectral Power Features</li>
+<li>EMG-like Feature</li>
 </ol>
-<blockquote>
-<p>The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn&rsquo;t listen. She packed her seven versalia, put her initial into the belt and made herself on the way.</p>
-</blockquote>
-<h2 id="header-level-2">Header Level 2</h2>
-<p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
-<p>The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn&rsquo;t listen. She packed her seven versalia, put her initial into the belt and made herself on the way.</p>
-<ul>
-<li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
-<li>Aliquam tincidunt mauris eu risus.</li>
-</ul>
-<p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then</p>
+<h2 id="model">Model</h2>
+<h2 id="results">Results</h2>
+<h2 id="conclusion">Conclusion</h2>
+<h3 id="references">References</h3>
+<ol>
+<li>Watson, B. O., &amp; Buzsáki, G. (2015). Sleep, Memory &amp; Brain Rhythms. Daedalus, 144(1), 67–82. <a href="https://doi.org/10.1162/DAED_a_00318">https://doi.org/10.1162/DAED_a_00318</a></li>
+<li>Watson, B. O., Levenstein, D., Greene, J. P., Gelinas, J. N., &amp; Buzsáki, G. (2016). Network Homeostasis and State Dynamics of Neocortical Sleep. Neuron, 90(4), 839–852. <a href="https://doi.org/10.1016/j.neuron.2016.03.036">https://doi.org/10.1016/j.neuron.2016.03.036</a></li>
+<li>Katsageorgiou VM, Sona D, Zanotto M, Lassi G, Garcia-Garcia C, et al. (2018) A novel unsupervised analysis of electrophysiological signals reveals new sleep substages in mice. PLOS Biology 16(5): e2003663. <a href="https://doi.org/10.1371/journal.pbio.2003663">https://doi.org/10.1371/journal.pbio.2003663</a></li>
+<li>Ranzato, M., &amp; Hinton, G.E. (2010). Modeling pixel means and covariances using factorized third-order boltzmann machines. 2010 IEEE Computer Society Conference on Computer Vision and Pattern Recognition, 2551-2558.</li>
+</ol>
          
       </div>
     </div>
