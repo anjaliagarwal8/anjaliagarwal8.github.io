@@ -112,23 +112,33 @@
          <h1>P300 Speller</h1>
          <p>Designed a calibration-less single trial classifier for P300 Speller</p>
 <p>@ <a href="https://www.br41n.io/Spring-School-2021">BR41N.IO</a></p>
-<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-<ol>
-<li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
-<li>Aliquam tincidunt mauris eu risus.</li>
-</ol>
-<blockquote>
-<p>The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn&rsquo;t listen. She packed her seven versalia, put her initial into the belt and made herself on the way.</p>
-</blockquote>
-<h2 id="header-level-2">Header Level 2</h2>
-<p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
-<p>The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn&rsquo;t listen. She packed her seven versalia, put her initial into the belt and made herself on the way.</p>
+<p>During the BCI and Neurotechnology Spring School 2021 organized by gtec, I had the opportunity to participate in the BR41N.IO hackathon, sponsored by IEEE Brain, along with some great people from all over the world.</p>
+<p>We participated in the Data Analysis Projects category working with P300 Speller data to optimize preprocessing, feature extraction, and classification.</p>
+<h3 id="p300-speller-data">P300 Speller Data</h3>
+<p>Many advancements have been going on in the field of Brain-Computer Interface that now we can control any hardware device, be it computer, wheelchair, or virtual environment, using our brain signals. One such important application of BCI is a spelling device to help people suffering from ALS communicate effectively. Many of such non-invasive spelling devices use P300 signals for detecting the letters the person wants to type.</p>
+<p>P300 wave is an event-related potential, i.e. it gets elicited in the EEG signal when a person is introduced to some external stimulus, in this case a flash of light. P300 waves can be identified having a positive deflection in voltage around 250-500 ms after the stimulus is introduced. It is usually used in an oddball paradigm method, in which low-probability targets are mixed with high-probability targets.</p>
+<p>In this project, subjects were asked to focus on the letter they wanted to type while each cell in a matrix of letters was getting flashed randomly. Whenever the letter, on which the subject is focusing, is flashed, it elicits the P300 signal which can be captured using the EEG device worn by the subject. Synchronizing this random flashing of letters and the elicited P300 signals will help to decode and present on screen the letter which the participant intended to type.</p>
+<p>The data was recorded at a sampling frequency of 256 Hz using eight electrodes as illustrated below.</p>
+<h3 id="data-preprocessing">Data Preprocessing</h3>
+<p>First, the raw signals were band-pass filtered between 0.5 to 45 Hz, and the common average reference (CAR) spatial filter was applied for further processing. Next, the signal was separated into epochs of 0 - 1000 ms after the stimulus onset.</p>
+<h3 id="data-augmentation">Data Augmentation</h3>
+<p>The data provided was collected from five subjects, which was less to train a classification model. Also, the uneven distribution of targets and non-targets creates several problems pertaining to imbalanced classification. We tried several methods of Data Augmentation to solve these two problems.</p>
 <ul>
-<li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
-<li>Aliquam tincidunt mauris eu risus.</li>
+<li><strong>Pink Noise Addition:</strong> The first approach for Data Augmentation was adding noise in the data. First, the less distinguishing areas in the signal were selected between targets and non-targets. The pink noise was modulated according to the data using the p-value Mann-Whitney Test and then it was added to the signal in the particular area.</li>
+<li><strong>ICA Components Decomposition:</strong> The second approach was to decompose the signal into eight Independent Component Analysis components. We chose the component related to frontal brain activity and added some noise to it. Lastly, we re-composed the signal to augment the original data.</li>
+<li><strong>SVM SMOTE:</strong> The last approach we tried was SVM SMOTE (Synthetic Minority Over Sampling Technique). This was mainly done to balance targets and non-targets since targets and non-targets have a ratio of 1:7. In this method various synthetic points are created using k nearest neighbors method to balance the two classes.</li>
 </ul>
-<p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then</p>
+<h3 id="classification">Classification</h3>
+<p>For classification, we used a pre-trained deep convolutional neural network, with the following architecture.
+The network captures various feature dependencies in the dataset, just like we create feature maps in image classification tasks to visualize what each block in the network is learning. We used the Leave One Subject Out (LOSO) cross-validation for training the network. 
+For fine-tuning the network, we used the above Data Augmentation techniques. The network achieved more than 90% accuracy for three of the subjects and more than 85% accuracy for the fourth subject.</p>
+<p><strong>Team : Eduardo Santamaría-Vázquez, Víctor Martínez-Cagigal, Sergio Pérez-Velasco, Diego Marcos-Martínez, Anjali Agarwal, Katherine Rojas</strong></p>
+<p><a href="https://www.youtube.com/watch?v=DtyBQEMvGu4&amp;list=PLkMYtIVfFBHNpfBPnv-RxCUXccAnz0nGl">Watch the Hackathon Presentation</a></p>
+<h4 id="references">References</h4>
+<ol>
+<li>E. Santamaría-Vázquez, V. Martínez-Cagigal, F. Vaquerizo-Villar and R. Hornero, &ldquo;EEG-Inception: A Novel Deep Convolutional Neural Network for Assistive ERP-Based Brain-Computer Interfaces,&rdquo; in IEEE Transactions on Neural Systems and Rehabilitation Engineering, vol. 28, no. 12, pp. 2773-2782, Dec. 2020, doi: 10.1109/TNSRE.2020.3048106.</li>
+<li>C. Szegedy, W. Liu, Y. Jia, P. Sermanet, S. Reed, D. Anguelov, D. Erhan, V. Vanhoucke, and A. Rabinovich, “Going deeper with convolutions,” Proceedings of the IEEE Computer Society Conference on Computer Vision and Pattern Recognition, pp. 1–9, 2015</li>
+</ol>
          
       </div>
     </div>
