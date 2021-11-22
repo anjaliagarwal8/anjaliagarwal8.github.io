@@ -119,6 +119,8 @@
 <p>P300 wave is an event-related potential, i.e. it gets elicited in the EEG signal when a person is introduced to some external stimulus, in this case a flash of light. P300 waves can be identified having a positive deflection in voltage around 250-500 ms after the stimulus is introduced. It is usually used in an oddball paradigm method, in which low-probability targets are mixed with high-probability targets.</p>
 <p>In this project, subjects were asked to focus on the letter they wanted to type while each cell in a matrix of letters was getting flashed randomly. Whenever the letter, on which the subject is focusing, is flashed, it elicits the P300 signal which can be captured using the EEG device worn by the subject. Synchronizing this random flashing of letters and the elicited P300 signals will help to decode and present on screen the letter which the participant intended to type.</p>
 <p>The data was recorded at a sampling frequency of 256 Hz using eight electrodes as illustrated below.</p>
+<p><img src="/img/portfolio/p300/electrodes.jpg" alt="electrodes"></p>
+<p><img src="/img/portfolio/p300/P300_target.jpg" alt="signal"></p>
 <h3 id="data-preprocessing">Data Preprocessing</h3>
 <p>First, the raw signals were band-pass filtered between 0.5 to 45 Hz, and the common average reference (CAR) spatial filter was applied for further processing. Next, the signal was separated into epochs of 0 - 1000 ms after the stimulus onset.</p>
 <h3 id="data-augmentation">Data Augmentation</h3>
@@ -129,8 +131,9 @@
 <li><strong>SVM SMOTE:</strong> The last approach we tried was SVM SMOTE (Synthetic Minority Over Sampling Technique). This was mainly done to balance targets and non-targets since targets and non-targets have a ratio of 1:7. In this method various synthetic points are created using k nearest neighbors method to balance the two classes.</li>
 </ul>
 <h3 id="classification">Classification</h3>
-<p>For classification, we used a pre-trained deep convolutional neural network, with the following architecture.
-The network captures various feature dependencies in the dataset, just like we create feature maps in image classification tasks to visualize what each block in the network is learning. We used the Leave One Subject Out (LOSO) cross-validation for training the network. 
+<p>For classification, we used a pre-trained deep convolutional neural network, with the following architecture.</p>
+<p><img src="/img/portfolio/p300/arch.jpg" alt="architecture"></p>
+<p>The network captures various feature dependencies in the dataset, just like we create feature maps in image classification tasks to visualize what each block in the network is learning. We used the Leave One Subject Out (LOSO) cross-validation for training the network. 
 For fine-tuning the network, we used the above Data Augmentation techniques. The network achieved more than 90% accuracy for three of the subjects and more than 85% accuracy for the fourth subject.</p>
 <p><strong>Team : Eduardo Santamaría-Vázquez, Víctor Martínez-Cagigal, Sergio Pérez-Velasco, Diego Marcos-Martínez, Anjali Agarwal, Katherine Rojas</strong></p>
 <p><a href="https://www.youtube.com/watch?v=DtyBQEMvGu4&amp;list=PLkMYtIVfFBHNpfBPnv-RxCUXccAnz0nGl">Watch the Hackathon Presentation</a></p>
