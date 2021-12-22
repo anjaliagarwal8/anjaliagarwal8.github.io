@@ -109,8 +109,42 @@
   <div class="row">
     <div class="col-lg-8">
       <div class="content-column-content">
-         <h1>V1-ResNet Model</h1>
-         
+         <h1>VOneNet: a Hybrid CNN</h1>
+         <p>Analysis of VOneNet towards adversarial attacks.</p>
+<p>@ <a href="https://academy.neuromatch.io/">Neuromatch Academy</a></p>
+<p>Neuromatch Academy has reignited my curiosity and appetite for knowledge. I had the most fun learning and building projects in neuroscience and deep learning during the two-month-long interactive course.<br>
+During this time I got to collaborate with some awesome people and work on the analysis of CNN models that can prevent adversarial attacks on images.</p>
+<h3 id="vonenet-a-hybrid-cnn-with-a-v1-neural-network-front-end">VOneNet: a Hybrid CNN with a V1 Neural Network Front-End</h3>
+<p>With recent advances in Deep learning technology models can perform object detection tasks with high accuracy but are often fooled when adversarially attacked images are introduced. Images with some added noise or patch are called adversarially attacked images. These images can look the same to the human eye but can seem a completely different image to a highly accurate object detection model.</p>
+<p><img src="/img/portfolio/nma_dl/adversarial_attack.PNG" alt="adversarial_attack"></p>
+<p>Designing CNN models that are robust to adversarial images is a challenge. However, recent research has suggested that the models that adopt/mimic the primary visual processing of primates are more likely to improve the robustness. The similarity in the CNN and primate visual cortex is a well-explored area of research. Though there are differences in the higher visual areas(V2, V3, V4, and so on), the primary visual cortex (V1) has been shown to have strong similarities in terms of its computation and representation.</p>
+<p><img src="/img/portfolio/nma_dl/v1_block.PNG" alt="v1_block"></p>
+<p>Leveraging this, VOneNets are used to combat the processing of image perturbations. VOneNet contains VOneBlock, which is a hybrid neural network with a fixed weight front-end, shares the linear, nonlinear, and stochastic properties of the first layer, that is meant to reflect primate V1 as input to standard CNNs.</p>
+<h3 id="data">Data</h3>
+<p>We used the Imagenet dataset for testing the pretrained models.</p>
+<p>For adding adversarial attacks to the images we used the Foolbox library, implementing the DeepFool L-infinity attack.</p>
+<p>![image][3]</p>
+<h3 id="model-activations">Model Activations</h3>
+<p>ResNet50 model was used as the backend convolutional neural network. Therefore, for comparison, we used the vanilla ResNet50 model and the hybrid ResNet50 model with V1 network at the front end (VOneResNet50).</p>
+<p>After testing the models with clean and perturbed images, we collected the activations from each layer to inspect and visualize the difference in activations of each model to clean and perturbed images.</p>
+<h3 id="representational-dissimilarity-analysis">Representational Dissimilarity Analysis</h3>
+<p>For analysis of activations, we used the Representational Dissimilarity Analysis (RDA) method (analogous to RSA). We used Pearson’s Correlation coefficient to find the similarity between the activations of the model for clean and perturbed images and converted it into a dissimilarity coefficient. 
+In the figure below you can see the dissimilarity or deviation coefficients for the V1 Resnet model and the vanilla Resnet model for one of the ImageNet images.</p>
+<p>![single_deviation][4]</p>
+<p>We can observe that the V1 Resnet50 model has a low deviation between the clean and perturbed image as compared to the vanilla Resnet50 model.</p>
+<p>We can also note that at four points the deviation of both the V1 Resnet50 model and vanilla Resnet50 model is zero, i.e. there is no difference in the clean and perturbed image. This occurs at 4, 12, 25, and 44 points on the x-axis.
+This corresponds to layers:</p>
+<p><strong>4  -  Layer 1, Bottleneck 0, Downsampling</strong></p>
+<p><strong>12 - Layer 2, Bottleneck 0, Conv2</strong></p>
+<p><strong>25 - Layer 3, Bottleneck 0, Conv2</strong></p>
+<p><strong>44 - Layer 4, Bottleneck 0, Conv2</strong></p>
+<p>In fact, Conv2 blocks in every bottleneck of every layer are where we observe the dips.
+This observation can be generalized to all the images we tested the models on.</p>
+<p>![all_deviation][5]</p>
+<h3 id="image-visualization">Image Visualization</h3>
+<p>For visualizing each activation as an image, we used PCA to lower the dimension of each activation and then reshaped it as an image.</p>
+<p>![image]</p>
+<p>Analyzing the images above, we can clearly see that although there is not much difference between V1 Resnet50 and Resnet50 model for clean images, for perturbed images there is a reasonable difference. This is because the V1 model is performing better on perturbed images than the Resnet50 model.</p>
          
       </div>
     </div>
