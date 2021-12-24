@@ -123,14 +123,15 @@ During this time I got to collaborate with some awesome people and work on the a
 <h3 id="data">Data</h3>
 <p>We used the Imagenet dataset for testing the pretrained models.</p>
 <p>For adding adversarial attacks to the images we used the Foolbox library, implementing the DeepFool L-infinity attack.</p>
-<p>![image][3]</p>
+<p><img src="/img/portfolio/nma_dl/clean_images.png" alt="clean_images">
+<img src="/img/portfolio/nma_dl/perturbed_images.png" alt="perturbed_images"></p>
 <h3 id="model-activations">Model Activations</h3>
 <p>ResNet50 model was used as the backend convolutional neural network. Therefore, for comparison, we used the vanilla ResNet50 model and the hybrid ResNet50 model with V1 network at the front end (VOneResNet50).</p>
 <p>After testing the models with clean and perturbed images, we collected the activations from each layer to inspect and visualize the difference in activations of each model to clean and perturbed images.</p>
 <h3 id="representational-dissimilarity-analysis">Representational Dissimilarity Analysis</h3>
 <p>For analysis of activations, we used the Representational Dissimilarity Analysis (RDA) method (analogous to RSA). We used Pearson’s Correlation coefficient to find the similarity between the activations of the model for clean and perturbed images and converted it into a dissimilarity coefficient. 
 In the figure below you can see the dissimilarity or deviation coefficients for the V1 Resnet model and the vanilla Resnet model for one of the ImageNet images.</p>
-<p>![single_deviation][4]</p>
+<p><img src="/img/portfolio/nma_dl/single_deviation.png" alt="single_deviation"></p>
 <p>We can observe that the V1 Resnet50 model has a low deviation between the clean and perturbed image as compared to the vanilla Resnet50 model.</p>
 <p>We can also note that at four points the deviation of both the V1 Resnet50 model and vanilla Resnet50 model is zero, i.e. there is no difference in the clean and perturbed image. This occurs at 4, 12, 25, and 44 points on the x-axis.
 This corresponds to layers:</p>
@@ -140,10 +141,11 @@ This corresponds to layers:</p>
 <p><strong>44 - Layer 4, Bottleneck 0, Conv2</strong></p>
 <p>In fact, Conv2 blocks in every bottleneck of every layer are where we observe the dips.
 This observation can be generalized to all the images we tested the models on.</p>
-<p>![all_deviation][5]</p>
+<p><img src="/img/portfolio/nma_dl/all_deviation.png" alt="all_deviation"></p>
 <h3 id="image-visualization">Image Visualization</h3>
 <p>For visualizing each activation as an image, we used PCA to lower the dimension of each activation and then reshaped it as an image.</p>
-<p>![image]</p>
+<p><img src="/img/portfolio/nma_dl/resnet.png" alt="resnet">
+<img src="/img/portfolio/nma_dl/v1.png" alt="v1"></p>
 <p>Analyzing the images above, we can clearly see that although there is not much difference between V1 Resnet50 and Resnet50 model for clean images, for perturbed images there is a reasonable difference. This is because the V1 model is performing better on perturbed images than the Resnet50 model.</p>
          
       </div>
