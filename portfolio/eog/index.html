@@ -112,6 +112,33 @@
          <h1>EOG Virtual Speller</h1>
          <p>EOG(Electrooculogram) based virtual keyboard.</p>
 <p>@ <a href="https://iitpkd.ac.in/">IIT PKD</a></p>
+<p>Designing and working on an EOG (Electrooculogram) based virtual assistive device was my first exposure to assistive communication technologies before transitioning to brain-computer interfaces.</p>
+<p>Checkout the code <a href="https://github.com/anjaliagarwal8/EOG-Keyboard">here</a></p>
+<p>EOG or electrooculogram signals are generated because the human eye acts as a dipole with the cornea positively charged relative to the retina at the back of the eye. If electrodes are placed on the skin surrounding the eyes, then one can record the electrical activity, which changes in synchrony with the eye&rsquo;s movements.</p>
+<p><img src="/img/portfolio/eog/eog_signal.PNG" alt="eog_signal"></p>
+<p>This biopotential can be leveraged to be used in assistive technologies like wheelchairs, keyboards by people suffering from paralysis, ALS, and other similar conditions wherein they are unable to have voluntary body movements.</p>
+<p>Below, I have described one such assistive communicative device that uses the power of biopotential-difference generated in the eyes. You can type on a virtual keyboard just by using your eyes!</p>
+<h3 id="acquisition-and-processing">Acquisition and Processing</h3>
+<p>The signals were acquired using ECG electrodes placed around the eyes; two placed above and below the right eye and two on either side of each eye. The fifth electrode, the reference or ground electrode, is placed at the back of the ear. The electrodes were connected to the acquisition system using ECG lead cables.</p>
+<p><img src="/img/portfolio/eog/eletrode_placement.png" alt="electrode_placement"></p>
+<p>The raw signal we acquired was merged with noises coming from various sources, power-line interference, cables, skin resistance. It also had a very low amplitude (in the range of microvolts), making it too difficult to detect the change in the signal. 
+For amplification of these signals, we used an instrumentation amplifier set with a gain of 1000. We can directly find the potential difference between the two horizontal electrodes or the two vertical electrodes. We next used a two-stage Sallen Key low pass filter with a cutoff frequency of 30 Hz to remove the noise at frequencies above 30 Hz and an active high pass filter of cutoff frequency 0.15 Hz to remove the DC offset.</p>
+<p>For converting the clean, amplified analog signals into digital and extracting them into the computer, we used the Arduino Uno R3 microcontroller. For that, we mapped the analog signals to the 0-5 V range using a level shifter.</p>
+<p><img src="/img/portfolio/eog/circuit.PNG" alt="circuit"></p>
+<p>The above amplification and filtering circuit was designed separately for both horizontal and vertical eye movements.</p>
+<h3 id="detection-and-classification">Detection and Classification</h3>
+<p>The signals from the Arduino, sampled at 9600 Hz, were read in MATLAB to be classified into the corresponding direction. The voltage difference was read for horizontal and vertical eye movements from the respective port in the board.</p>
+<p>To detect and classify the left, right, up, and down eye movements, we first determined the amplitude threshold value by running repeated calibrations. We also recorded the amplitude for blinks to remove them from the classification process so that the user doesn’t have to worry about blinking while using the keyboard. We saved these threshold values to be used in the graphical interface of the virtual keyboard.</p>
+<h3 id="assistive-keyboard-design">Assistive Keyboard Design</h3>
+<p>The virtual keyboard was designed disparately to the conventional QWERTY keyboard to achieve a faster typing speed. The letters are arranged in a matrix form with numbered rows and columns so that the user only has to select the row number and column number to type a letter. Owing to only four possible detectable eye movements, the matrix is restricted to only four rows and columns. To accommodate all the 26 alphabets, we used three matrices, each equipped with backspace, spacebar, and two keys to transition to other matrices.</p>
+<p>The GUI also had four indicators that flash whenever the eye moves in a particular direction to notify the user of the detection of a movement. Along with these features, the interface contained a space to show the words being typed out by the user.</p>
+<p>The final keyboard appeared as follows:</p>
+<p><img src="/img/portfolio/eog/keyboard.PNG" alt="keyboard"></p>
+<h3 id="results">Results</h3>
+<p>As demonstrated in the video below, we achieved 100% accuracy with a typing speed of 10 characters per minute on average. The novel keyboard design provided a gain of 24% in terms of typing speed than using a conventional QWERTY keyboard.</p>
+<p>Watch the video demonstration <a href="https://www.youtube.com/watch?v=Qg4vV-t-w4w">here</a></p>
+<h4 id="references">References</h4>
+<p>D. S. Nathan, A. P. Vinod and K. P. Thomas, &ldquo;An electrooculogram based assistive communication system with improved speed and accuracy using multi-directional eye movements,&rdquo; 2012 35th International Conference on Telecommunications and Signal Processing (TSP), 2012, pp. 554-558, doi: 10.1109/TSP.2012.6256356.</p>
          
       </div>
     </div>
