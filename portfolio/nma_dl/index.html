@@ -112,6 +112,7 @@
          <h1>VOneNet: a Hybrid CNN</h1>
          <p>Analysis of VOneNet towards adversarial attacks.</p>
 <p>@ <a href="https://academy.neuromatch.io/">Neuromatch Academy</a></p>
+<p>Checkout the code <a href="https://github.com/anjaliagarwal8/V1_Resnet-NMA">here</a></p>
 <p>Neuromatch Academy has reignited my curiosity and appetite for knowledge. I had the most fun learning and building projects in neuroscience and deep learning during the two-month-long interactive course.<br>
 During this time I got to collaborate with some awesome people and work on the analysis of CNN models that can prevent adversarial attacks on images.</p>
 <h3 id="vonenet-a-hybrid-cnn-with-a-v1-neural-network-front-end">VOneNet: a Hybrid CNN with a V1 Neural Network Front-End</h3>
@@ -147,6 +148,15 @@ This observation can be generalized to all the images we tested the models on.</
 <p><img src="/img/portfolio/nma_dl/resnet.png" alt="resnet">
 <img src="/img/portfolio/nma_dl/v1.png" alt="v1"></p>
 <p>Analyzing the images above, we can clearly see that although there is not much difference between V1 Resnet50 and Resnet50 model for clean images, for perturbed images there is a reasonable difference. This is because the V1 model is performing better on perturbed images than the Resnet50 model.</p>
+<h3 id="conclusion">Conclusion</h3>
+<p>Here we inspected and visualized the activations we obtain when we run clean and perturbed images through a normal ResNet50 model and a hybrid ResNet50 model with the front end as the V1 block inspired from the V1 part of the human visual system. 
+We observed that the deviation between activations for clean and perturbed images in the case of VOneNet is much lower than for the normal ResNet model which gives proof that the VOneNet model is robust and is not affected by adversarial attacks. Some more insights we built analyzing the deviation maps are the dips at specific layers where the deviation is zero for both the models, the occurrence of which is not clear and provides an opportunity for future work.</p>
+<p><strong>Team:  Ishwarya Chandramouli, Anjali Agarwal, Ranjith Jaganathan</strong></p>
+<h4 id="references">References</h4>
+<ol>
+<li>Dapello, J., Marques, T., Schrimpf, M., Geiger, F., Cox, D.D., &amp; DiCarlo, J.J. (2020). Simulating a Primary Visual Cortex at the Front of CNNs Improves Robustness to Image Perturbations. bioRxiv.</li>
+<li>Kriegeskorte, N., Mur, M., &amp; Bandettini, P. (2008). Representational similarity analysis - connecting the branches of systems neuroscience. Frontiers in systems neuroscience, 2, 4. <a href="https://doi.org/10.3389/neuro.06.004.2008">https://doi.org/10.3389/neuro.06.004.2008</a></li>
+</ol>
          
       </div>
     </div>
