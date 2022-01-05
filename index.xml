@@ -8,6 +8,16 @@
     <language>en-us</language>
     <lastBuildDate>Sat, 05 Nov 2016 21:05:33 +0530</lastBuildDate><atom:link href="https://anjaliagarwal8.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>NeuroCAAS Deployment</title>
+      <link>https://anjaliagarwal8.github.io/portfolio/neurocaas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://anjaliagarwal8.github.io/portfolio/neurocaas/</guid>
+      <description>&lt;p&gt;Work in Progress&lt;/p&gt;
+&lt;p&gt;@ &lt;a href=&#34;https://snel.gatech.edu/&#34;&gt;SNEL&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Automated Sleep Scoring</title>
       <link>https://anjaliagarwal8.github.io/portfolio/sleep_scoring/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -18,26 +28,6 @@
     </item>
     
     <item>
-      <title>P300 Speller</title>
-      <link>https://anjaliagarwal8.github.io/portfolio/ppg_speller/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://anjaliagarwal8.github.io/portfolio/ppg_speller/</guid>
-      <description>&lt;p&gt;Designed a calibration-less single-trial classifier for P300 Speller&lt;/p&gt;
-&lt;p&gt;@ &lt;a href=&#34;https://www.br41n.io/Spring-School-2021&#34;&gt;BR41N.IO Hackathon&lt;/a&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Deception Detection</title>
-      <link>https://anjaliagarwal8.github.io/portfolio/dec_det/</link>
-      <pubDate>Sat, 05 Nov 2016 19:59:22 +0530</pubDate>
-      
-      <guid>https://anjaliagarwal8.github.io/portfolio/dec_det/</guid>
-      <description>&lt;p&gt;Developed an eye-tracking Deception Detection system.&lt;/p&gt;
-&lt;p&gt;@ &lt;a href=&#34;https://www.ntu.edu.sg/temasek-labs/&#34;&gt;Temasek Lab&lt;/a&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
       <title>Neural Website</title>
       <link>https://anjaliagarwal8.github.io/portfolio/allenai/</link>
       <pubDate>Sat, 05 Nov 2016 19:57:40 +0530</pubDate>
@@ -45,6 +35,16 @@
       <guid>https://anjaliagarwal8.github.io/portfolio/allenai/</guid>
       <description>&lt;p&gt;From the mind to the computer, make websites using your imagination!&lt;/p&gt;
 &lt;p&gt;@ &lt;a href=&#34;https://allennlp-hackathon.apps.allenai.org/&#34;&gt;AllenNLP Hacks&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>P300 Speller</title>
+      <link>https://anjaliagarwal8.github.io/portfolio/ppg_speller/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://anjaliagarwal8.github.io/portfolio/ppg_speller/</guid>
+      <description>&lt;p&gt;Designed a calibration-less single-trial classifier for P300 Speller&lt;/p&gt;
+&lt;p&gt;@ &lt;a href=&#34;https://www.br41n.io/Spring-School-2021&#34;&gt;BR41N.IO Hackathon&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -65,6 +65,16 @@
       <guid>https://anjaliagarwal8.github.io/portfolio/eog/</guid>
       <description>&lt;p&gt;EOG(Electrooculogram) based virtual keyboard.&lt;/p&gt;
 &lt;p&gt;@ &lt;a href=&#34;https://iitpkd.ac.in/&#34;&gt;IIT PKD&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Deception Detection</title>
+      <link>https://anjaliagarwal8.github.io/portfolio/dec_det/</link>
+      <pubDate>Sat, 05 Nov 2016 19:59:22 +0530</pubDate>
+      
+      <guid>https://anjaliagarwal8.github.io/portfolio/dec_det/</guid>
+      <description>&lt;p&gt;Developed an eye-tracking Deception Detection system.&lt;/p&gt;
+&lt;p&gt;@ &lt;a href=&#34;https://www.ntu.edu.sg/temasek-labs/&#34;&gt;Temasek Lab&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>
